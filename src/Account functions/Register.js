@@ -45,6 +45,9 @@ function Login() {
           setError("This email is already used.");
           setTimeout(() => setError(null), 3000);
           break;
+        default:
+          setError("Something went wrong, try again later.");
+          setTimeout(() => setError(null), 3000);
       }
     }
   };

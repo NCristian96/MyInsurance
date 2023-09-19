@@ -23,7 +23,6 @@ function DeleteAccount({ visible, setVisible }) {
       navigate("/login");
     } catch (err) {
       setError(null);
-      console.log(err);
       switch (err?.code) {
         case "auth/wrong-password":
           setError("Incorrect password");
@@ -31,6 +30,8 @@ function DeleteAccount({ visible, setVisible }) {
         case "auth/invalid-login-credentials":
           setError("Incorrect password");
           break;
+        default:
+          setError("Something went wrong. Try again later.");
       }
     }
   };

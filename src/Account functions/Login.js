@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import ResetPassword from "./ResetPassword";
 
 function Login({ refresh }) {
-  console.log(process.env);
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const [email, setEmail] = useState("");
@@ -27,7 +26,6 @@ function Login({ refresh }) {
       }
     } catch (err) {
       setError(null);
-      console.log(err);
       switch (err?.code) {
         case "auth/user-not-found":
           setError("User not found");
@@ -47,6 +45,8 @@ function Login({ refresh }) {
         case "auth/invalid-login-credentials":
           setError("Invalid login credentials");
           break;
+        default:
+          setError("Something went wrong. Try again later.");
       }
     }
   };
@@ -98,7 +98,6 @@ function Login({ refresh }) {
                 e.preventDefault();
                 setVisible(true);
               }}
-              href=""
               className="text-center text-white mt-2"
             >
               Forgot password?

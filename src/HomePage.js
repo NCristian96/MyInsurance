@@ -10,7 +10,6 @@ import Navbar from "./Navbar";
 function HomePage() {
   const userId = sessionStorage.getItem("userId");
   const [policies, setPolicies] = useState(null);
-  const [filter, setFilter] = useState("");
   const [counter, setCounter] = useState(0);
   const navigate = useNavigate();
   const update = () => {

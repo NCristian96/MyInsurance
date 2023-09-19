@@ -39,7 +39,6 @@ function ResetPassword({ visible, setVisible }) {
       setEmail("");
     } catch (err) {
       setError(null);
-      console.log(err);
       switch (err?.code) {
         case "auth/invalid-email":
           setError("Invalid email");
@@ -47,6 +46,8 @@ function ResetPassword({ visible, setVisible }) {
         case "auth/user-not-found":
           setError("No user with this email address found.");
           break;
+        default:
+          setError("Something went wrong. Try agian later.");
       }
     }
   };

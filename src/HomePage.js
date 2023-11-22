@@ -62,10 +62,10 @@ function HomePage() {
               </CButton>
             </div>
             <div className="overflow-auto" style={{ height: "80%" }}>
-              <div hidden={policies?.policies.length >= 1} className="text-center">
+              <div hidden={policies?.policies?.length >= 1} className="text-center">
                 Your policies list is empty
               </div>
-              {policies?.policies.length >= 1 && policies?.policies?.length < 1 ? (
+              {policies?.policies?.length >= 1 && policies?.policies?.length < 1 ? (
                 <p className="text-center">No policies found</p>
               ) : (
                 policiesList

@@ -17,11 +17,12 @@ function DeleteAccount({ visible, setVisible }) {
     try {
       const user = auth.currentUser;
       await signInWithEmailAndPassword(auth, email, password);
-      await deleteUser(user);
       await deleteDoc(doc(db, "users", id));
+      await deleteUser(user);
       sessionStorage.clear();
       navigate("/login");
     } catch (err) {
+      console.log(err);
       setError(null);
       switch (err?.code) {
         case "auth/wrong-password":
